@@ -32,19 +32,30 @@ public class Player : MonoBehaviour
       yield return new WaitForSeconds(1f);
 
      }
+     float runSpeedn = runSpeed;
+
 
      boombastic.Play();
      
      rateCount = 1;
-     hararets.rateOverTime = 1;
-     // partical patlaması karakter değişimi 
-    
-    
 
+     hararets.rateOverTime = 1;
+     
+     playerSprite.color = Color.blue;
+
+     playerSprite.transform.DOScale(0,0.1f);
+     
+      yield return new WaitForSeconds(0.1f);
+     
+     playerSprite.transform.DOScale(1,0.1f);
+     
+     Dampinger.shake.ShakeCamera(4,0.2f);
      // stat değişir durum değişir resim değişir vesaire vesaire
+    
 
      StartCoroutine(Changer());
     }
+    
     void Start()
     {
         animator = GetComponent<Animator>();
